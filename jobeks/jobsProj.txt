@@ -1,0 +1,85 @@
+
+
+      Jobs Platform project
+    ----------------------------
+
+
+In the jobs project you will build a web  aplication that
+creates a jobs marketplace.
+Developers can search for a job, specify interesting 
+area(s) of expertise, and be notified of new jobs that
+match their specifications.
+Job offers, can define the position requirements, browse 
+through possible candidates, and get notification of 
+new applications for jobs.
+Every user can be both a job offerer and a job seeker.
+
+views:
+Create (at least) the following views:
+    - user login
+        Enter your login credentials
+
+    - user profile
+        Will have 2 parts:
+            Public part:
+                * public-description (free text)
+                * location
+            Private:
+                * fist name, last name, email address
+                * private-description (free text for work history, skills etc)
+
+    - Positions browsing view
+        Displays a list of jobs with current open positions.
+        Anyone can view this list, even if not logged in.
+        If a user is logged in, she can apply for a job.
+        (off course, jobs have 'detailed' and 'brief' views)
+        List can be filtered in various ways:
+            * required skills
+            * posting age (in days)
+            * list of offerers
+
+
+    - 'my jobs' results view
+        2 lists:
+        * jobs I applied for
+        * new positions that match 'myjobs' agent.
+            User can delete jobs from this list, so they are
+            not displayed in it again.
+
+    - 'myjobs' agent definition
+        Specify requirements for jobs, to be used by job
+        agent:
+            * skills
+            * list of offerers (or all)
+            * max distance from my location
+    
+for Oferres:
+    
+    - new/update  job
+        A job offerer can specify a new, or updae a job offer.
+            * job description
+            * list of required skills
+            * relevancy state (position still valid ?) (true/false)
+        
+    
+
+    - new jobs/candidates view
+        View lists my job-offers, and new users that applied for my offers.
+        Offerer can remove candidates from a job on the list, so they are
+        not displayed on this job again.
+    
+
+Skills:
+    Each skill has a simple short description.
+    A developer either has, or hasn't got a certain skill.
+    A job either require, or doesn't require a certain skill.
+
+
+Design:
+    - design your angularjs services
+        (name services, specify API in each service)
+    - design client side filters you will need
+      (describe each filter and give it a name)
+    - describe in detail each view, specify how it should 
+      interract with your services.
+    - design your REST service

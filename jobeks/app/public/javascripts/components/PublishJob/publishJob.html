@@ -1,0 +1,33 @@
+<div class="container hero-body">
+    <h1>Publish new jobs</h1>
+    <div>
+        <label for="jobtitle">job title</label>
+        <input id="jobtitle" class="input is-danger"type="text" ng-model="job.title">
+        
+        <label for="jobdisc">job discription</label>
+        <input id="jobdisc" class="input is-danger"type="text" ng-model="job.description">
+       
+        <p>select locations :</p> <div ng-dropdown-multiselect="" options="locationdata" selected-model="locationmodel"extra-settings="locationsettings" translation-texts="locationcustomTexts"></div>
+       
+        <p>select youe skills :</p><div ng-dropdown-multiselect="" options="skillsdata" selected-model="skillsmodel"extra-settings="skillssettings" translation-texts="skillscustomTexts">></div>
+
+<!--        
+        <label for="locations">select locations</label>
+        <select id="locations" ng-model="locations">
+        </select>
+        <label for="skills">select skills</label>
+        <select id="skills"ng-model="skills">
+        </select> -->
+
+
+
+
+
+        <button class="button is-danger"ng-click="vm.publishJob()">publish job</button>
+       
+        <h1>{{msg}}</h1>
+
+
+
+</div>
+</div>

@@ -1,0 +1,56 @@
+<div ng-show="showJobs" ng-init="vm.GetJobs()">
+
+
+
+    <div class="container">
+
+
+        <button class="button is-danger" ng-disabled="prevOption" ng-click="vm.prevJobs()">prev jobs</button>
+        <button class="button is-danger" ng-disabled="nextOption" ng-click="vm.nextJobs()">next jobs</button>
+
+    </div>
+
+
+
+
+
+    <div class="box container" ng-show="loadData">
+        
+        
+        <h1 class="is-size-2">Filter job by location or skills</h1>
+        
+        <!-- <select2 multiple="multiple" ng-model="obj.field" s2-options="val['_id'] as val.skillName for val in skills"></select2> -->
+        <!-- <select2 multiple="multiple" ng-model="obj.field" s2-options="val['_id'] as val.locationName for val in locations"></select2> -->
+        
+        <!-- <select name="repeatSelect" id="repeatSelect" ng-model="data.model" multiple>
+            <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+         </select>
+         -->
+        
+        <p>select locations :</p><div ng-dropdown-multiselect="" options="locationdata" selected-model="locationmodel" extra-settings="locationsettings"
+            translation-texts="locationcustomTexts"></div>
+        
+          <p>select youe skills :</p><div ng-dropdown-multiselect="" options="skillsdata" selected-model="skillsmodel" extra-settings="skillssettings"
+            translation-texts="skillscustomTexts">></div>
+
+            <button class="button is-danger" ng-click="vm.GetFilterJobs()">Filter</button>
+    </div>
+
+
+
+    <div ng-repeat="job in fiveJobs track by $index">
+        <job id="job['_id']" title="job.jobName" description="job.description" pub-date="job.pub_date" location-name="job.locationName"
+            skills="job.skillNames"></job>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+</div>
+

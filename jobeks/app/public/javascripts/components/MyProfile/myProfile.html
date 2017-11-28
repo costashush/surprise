@@ -1,0 +1,11 @@
+<div class="container hero-body">
+   <h1>My Profile</h1>
+   <p>first name :</p><input class="input is-danger"type="text"  ng-model="user.firstName" autofocus>
+   <p>E-mail :</p><input class="input is-danger"type="text"  ng-model="user.email" >
+   <p>description :</p><input class="input is-danger"type="text"  ng-model="user.description" >
+   <p>user :</p><input class="input is-danger"type="text"  ng-model="user.userName" >
+   <p>pass :</p><input class="input is-danger"type="text"  ng-model="user.pass" >
+   
+   <button class="button is-danger" ng-click="vm.updateDetails()">Update Details</button>
+   <h1>{{updateMsg}}</h1>
+</div>

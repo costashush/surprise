@@ -1,0 +1,30 @@
+<div class="hero-body " >
+  <ul>
+    <a  href="/" class="button is-danger"ng-show="true" ng-click="vm.openJobs()">Home</a>
+    <a href="#!login" class="button is-danger"ng-show="showLogin" ng-click="vm.closeJobs()">login</a>
+    <a href="#!register" class="button is-danger"ng-show="showRegister||!checkLogin()" ng-click="vm.closeJobs()">register</a>
+    <a href="#!logout" class="button is-danger"ng-show="showLogout " ng-click="openJobs()">logout</a>
+    <a href="#!myProfile" class="button is-danger"ng-show="checkLogin()" ng-click="">my Profile</a>
+    <a href="#!myJobs" class="button is-danger"ng-show="checkLogin()" ng-click="vm.closeJobs()">my jobs</a>
+
+
+
+
+  </ul>
+
+</div>
+
+<section class="hero is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class=" title is-size-1">
+        JOBEKS <p class="is-size-6">
+          the ease way to job
+          </p>
+      </h1>
+      <h2 class="subtitle">
+        wellcome {{userName}}
+      </h2>
+    </div>
+  </div>
+</section>

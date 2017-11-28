@@ -1,0 +1,10 @@
+<div class="container hero-body" ng-show="!vm.logedIn">
+    <h1>Login</h1>
+    <p>E-mail :</p><input class="input is-danger" type="text" ng-model="userName" autofocus>
+    <p>pass :</p><input class="input is-danger" type="text" ng-model="pass" autofocus>
+    <div class="container">
+
+        <button class="button is-danger" ng-click="vm.login(userName,pass)">Login</button>
+    </div>
+    <h1>{{errMsg}}</h1>
+</div>
