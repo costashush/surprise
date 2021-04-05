@@ -14,18 +14,15 @@ font-family: "arial" ;
       float:left;
       padding: 10px;
       background-color:  #a3c2c2;
-      margin: 0 15px;
       border: 2px solid black;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;  
 }
-li:nth-child(3){
-        margin-left: 60px ;
-}
+li:nth-child(3),
 li:nth-child(5){
-        margin-left: 60px ;
-
+        margin-left: 20px ;
 }
+
 .clearfix::after{
     clear: both;
     display: block;
@@ -78,14 +75,33 @@ hr {
     bottom: -10px;
     cursor:se-resize;
 }
+.lt:hover:after,
+.rt:hover:after,
+.lb:hover:after,
 .rb:hover:after{
     content: '';
-    background: red;
+    background: grey;
     width: 50px;
     height: 50px;
     display: block;
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.1;
+}
+.lt:hover:after{
+    left:-15px;
+    top:-15px; 
+}
+.rt:hover:after{
+    right: -15px;
+    top: -15px;
+}
+.lb:hover:after{
+    left: -15px;
+    bottom: -15px;
+}
+.rb:hover:after{
+    bottom: -15px;
+    right: -15px;
 }
 table{  
     border: 1px solid black;
