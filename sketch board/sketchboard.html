@@ -1,104 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Sketch Board</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="sketchboard.css" rel="stylesheet" />
+  </head>
 
-<head>
-    <title>sketch board</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="sketchboard.css" rel="stylesheet">
-</head>
-
-<body>
-    <div id="blackdiv" class="hidetable">
-    </div>
+  <body>
+    <div id="blackdiv" class="hidetable"></div>
     <div id="savenote" class="popwindow hidetable"></div>
 
-
     <div id="savediv" class="popwindow hidetable">
-        <h3>Save<span id="savespan" class="x-button">X</span></h3>
+      <h3>Save<span id="savespan" class="x-button">X</span></h3>
 
-
-        <label for=save>please give a save name:</label>
-        <input type="text" id="saveinput" value="">
-        <button type="button" id="savebutton">Save</button>
+      <label for="save">please give a save name:</label>
+      <input type="text" id="saveinput" value="" />
+      <button type="button" id="savebutton">Save</button>
     </div>
 
     <div id="loaddiv" class="popwindow hidetable">
-        <h3>Load<span id="loadspan" class="x-button">X</span></h3>
+      <h3>Load<span id="loadspan" class="x-button">X</span></h3>
 
-
-        <label for=load>please select a save name:</label>
-        <select id="select">
-                   </select>
-        <button type="button" id="loadbutton">Load</button>
+      <label for="load">please select a save name:</label>
+      <select id="select"></select>
+      <button type="button" id="loadbutton">Load</button>
     </div>
 
-    
-
-
-
-
-    <h1>Sketch Board</h1>
+    <!-- <h1>Sketch Board</h1> -->
 
     <ul class="menu clearfix">
-        <li id="load">Load</li>
-        <li id="save">Save</li>
-        <li id="rectangale">Rectangale</li>
-        <li id="oval">Oval</li>
-        <li id="colors">Colors
+      <li id="rectangale">Rectangale</li>
+      <li id="oval">Oval</li>
+      <li id="triangle">triangle</li>
+      <li id="colors">
+        Colors
 
-            <div>
-                <table class="hidetable">
-                    <tr>
-                        <td width="33%" style="background-color:red"></td>
-                        <td style="background-color:blue"></td>
-                        <td style="background-color:yellow"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color:green"></td>
-                        <td style="background-color:purple"></td>
-                        <td style="background-color:brown"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color:purple"></td>
-                        <td style="background-color:brown"></td>
-                        <td style="background-color:blue"></td>
+        <div>
+          <table class="color-table hidetable">
+            <tr>
+              <td width="33%" style="background-color: red"></td>
+              <td style="background-color: blue"></td>
+              <td style="background-color: yellow"></td>
+            </tr>
+            <tr>
+              <td style="background-color: green"></td>
+              <td style="background-color: purple"></td>
+              <td style="background-color: brown"></td>
+            </tr>
+            <tr>
+              <td style="background-color: purple"></td>
+              <td style="background-color: brown"></td>
+              <td style="background-color: blue"></td>
+            </tr>
+          </table>
+        </div>
+      </li>
+      <li id="background-colors">
+        Background Colors
 
-                    </tr>
-                </table>
-            </div>
-        </li>
-
-
-
-
-
-
-
-
-
-        <li id="delete">Delete</li>
-
-
+        <div>
+          <table class="color-table hidetable">
+            <tr>
+              <td width="33%" style="background-color: rgb(255, 151, 151)"></td>
+              <td style="background-color: rgb(148, 148, 255)"></td>
+              <td style="background-color: rgb(253, 253, 135)"></td>
+            </tr>
+            <tr>
+              <td style="background-color: rgb(133, 255, 133)"></td>
+              <td style="background-color: rgb(255, 121, 255)"></td>
+              <td style="background-color: rgb(255, 157, 157)"></td>
+            </tr>
+            <tr>
+              <td style="background-color: rgb(255, 155, 255)"></td>
+              <td style="background-color: rgb(255, 142, 142)"></td>
+              <td style="background-color: rgb(146, 146, 255)"></td>
+            </tr>
+          </table>
+        </div>
+      </li>
+      <li id="load">Load</li>
+      <li id="save">Save</li>
+      <li id="delete">Delete</li>
     </ul>
 
+    <hr />
+    <div id="maindiv"></div>
 
-
-
-    <hr>
-    <div id="maindiv">
-
-
-
-
-
-
-
-    </div>
-
-    <script src="sketchboard.js">
-
-    </script>
-</body>
-
+    <script src="sketchboard.js"></script>
+  </body>
 </html>
