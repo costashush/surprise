@@ -145,3 +145,20 @@ h3 {
   padding: 20px;
   border-radius: 10px;
 }
+@media only screen and (max-width: 991px) {
+  .menu {
+    margin: 0;
+    padding: 0 5px;
+  }
+  .menu > li {
+    float: left;
+    padding: 5px;
+    background-color: #a3c2c2;
+    margin: 0 5px;
+    color: #f0f5f5;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 14px;
+    border-radius: 15px;
+  }
+}
