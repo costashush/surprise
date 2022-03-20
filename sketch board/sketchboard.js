@@ -183,11 +183,43 @@ function loadInitial(event) {
 }
 
 function resize(element) {
-  event.stopPropagation();
+  window.event.stopPropagation();
   var shape = this.parentElement;
-  var oldX = event.clientX;
-  var oldY = event.clientY;
+  var oldX = window.event.clientX || window.event.touches[0].clientX;
+  var oldY = window.event.clientY || window.event.touches[0].clientY;
+  // debugger;
   // console.log("a-a-a-a-a-a")
+  document.ontouchmove = function (e) {
+    // console.log(this.classList);
+    var newX = e.touches[0].clientX - oldX;
+    var newY = e.touches[0].clientY - oldY;
+    if (element.target.classList.value == "rb controler controler-on") {
+      shape.style.width = shape.offsetWidth + newX + "px";
+      shape.style.height = shape.offsetHeight + newY + "px";
+      oldX = e.touches[0].clientX;
+      oldY = e.touches[0].clientY;
+    } else if (element.target.classList.value == "lb controler controler-on") {
+      shape.style.width = shape.offsetWidth - newX + "px";
+      shape.style.height = shape.offsetHeight + newY + "px";
+      shape.style.left = shape.offsetLeft + newX + "px";
+      oldX = e.touches[0].clientX;
+      oldY = e.touches[0].clientY;
+    } else if (element.target.classList.value == "rt controler controler-on") {
+      shape.style.width = shape.offsetWidth + newX + "px";
+      shape.style.height = shape.offsetHeight - newY + "px";
+      shape.style.top = shape.offsetTop + newY + "px";
+      oldX = e.touches[0].clientX;
+      oldY = e.touches[0].clientY;
+    } else if (element.target.classList.value == "lt controler controler-on") {
+      shape.style.width = shape.offsetWidth - newX + "px";
+      shape.style.height = shape.offsetHeight - newY + "px";
+      shape.style.top = shape.offsetTop + newY + "px";
+      shape.style.left = shape.offsetLeft + newX + "px";
+      oldX = e.touches[0].clientX;
+      oldY = e.touches[0].clientY;
+    }
+  };
+
   document.onmousemove = function (e) {
     // console.log(this.classList);
     var newX = e.clientX - oldX;
@@ -221,6 +253,9 @@ function resize(element) {
   this.addEventListener("mouseup", function () {
     document.onmousemove = null;
   });
+  this.addEventListener("touchend", function () {
+    document.ontouchmove = null;
+  });
 }
 
 function createCorners(element) {
@@ -236,8 +271,8 @@ function createCorners(element) {
   var pickedCorners = document.getElementsByClassName("controler");
   for (var i = 0; i < pickedCorners.length; i++) {
     pickedCorners[i].addEventListener("mousedown", resize);
+    pickedCorners[i].addEventListener("touchstart", resize);
   }
-
   cornerEvents(element);
 }
 
@@ -256,24 +291,39 @@ function mouseUpEventShape(element) {
 function mouseDownEventShape(element) {
   //**move */
   element.addEventListener("mousedown", function (e) {
-    var diffx = parseInt(event.clientX - element.offsetLeft);
-    var diffy = parseInt(event.clientY - element.offsetTop);
-
+    var diffx = parseInt(window.event.clientX - element.offsetLeft);
+    var diffy = parseInt(window.event.clientY - element.offsetTop);
     flag = true;
 
     if (this.classList.contains("marked")) {
       document.onmousemove = function () {
         if (flag) {
           console.log(diffx, " ", diffy);
-          var x = event.clientX;
-          var y = event.clientY;
-          // console.log(event.offsetY, " ", event.offsetX);
-          // console.log(event.clientY, " ", event.clientX);
-          // var left = x - element.offsetWidth / 2;
-          // var top = y - element.offsetHeight / 2;
+          var x = window.event.clientX;
+          var y = window.event.clientY;
           var left = x - diffx;
           var top = y - diffy;
+          if (left > 0 && top > 0) {
+            element.style.left = left + "px";
+            element.style.top = top + "px";
+          }
+        }
+      };
+    }
+  });
+  element.addEventListener("touchstart", function (e) {
+    var diffx = parseInt(window.event.touches[0].clientX - element.offsetLeft);
+    var diffy = parseInt(window.event.touches[0].clientY - element.offsetTop);
+    flag = true;
 
+    if (this.classList.contains("marked")) {
+      document.ontouchmove = function () {
+        if (flag) {
+          console.log(diffx, " ", diffy);
+          var x = window.event.touches[0].clientX;
+          var y = window.event.touches[0].clientY;
+          var left = x - diffx;
+          var top = y - diffy;
           if (left > 0 && top > 0) {
             element.style.left = left + "px";
             element.style.top = top + "px";
@@ -284,6 +334,9 @@ function mouseDownEventShape(element) {
   });
   element.addEventListener("mouseup", function () {
     document.onmousemove = null;
+  });
+  element.addEventListener("touchend", function () {
+    document.ontouchmove = null;
   });
 }
 function clickEventShape(element) {
