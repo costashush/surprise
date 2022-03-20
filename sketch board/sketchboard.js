@@ -255,7 +255,6 @@ function mouseUpEventShape(element) {
 
 function mouseDownEventShape(element) {
   //**move */
-
   element.addEventListener("mousedown", function (e) {
     var diffx = parseInt(event.clientX - element.offsetLeft);
     var diffy = parseInt(event.clientY - element.offsetTop);
@@ -263,19 +262,15 @@ function mouseDownEventShape(element) {
     flag = true;
 
     if (this.classList.contains("marked")) {
-      this.onmousemove = function () {
+      document.onmousemove = function () {
         if (flag) {
           console.log(diffx, " ", diffy);
-
           var x = event.clientX;
           var y = event.clientY;
-
           // console.log(event.offsetY, " ", event.offsetX);
           // console.log(event.clientY, " ", event.clientX);
-
           // var left = x - element.offsetWidth / 2;
           // var top = y - element.offsetHeight / 2;
-
           var left = x - diffx;
           var top = y - diffy;
 
@@ -286,6 +281,9 @@ function mouseDownEventShape(element) {
         }
       };
     }
+  });
+  element.addEventListener("mouseup", function () {
+    document.onmousemove = null;
   });
 }
 function clickEventShape(element) {
