@@ -187,10 +187,7 @@ function resize(element) {
   var shape = this.parentElement;
   var oldX = window.event.clientX || window.event.touches[0].clientX;
   var oldY = window.event.clientY || window.event.touches[0].clientY;
-  // debugger;
-  // console.log("a-a-a-a-a-a")
   document.ontouchmove = function (e) {
-    // console.log(this.classList);
     var newX = e.touches[0].clientX - oldX;
     var newY = e.touches[0].clientY - oldY;
     if (element.target.classList.value == "rb controler controler-on") {
@@ -221,7 +218,6 @@ function resize(element) {
   };
 
   document.onmousemove = function (e) {
-    // console.log(this.classList);
     var newX = e.clientX - oldX;
     var newY = e.clientY - oldY;
     if (element.target.classList.value == "rb controler controler-on") {
@@ -255,6 +251,7 @@ function resize(element) {
   });
   this.addEventListener("touchend", function () {
     document.ontouchmove = null;
+    document.onmousemove = null;
   });
 }
 
